@@ -41,7 +41,8 @@ ul.social-set {
   }
   ul.social-set li {
     display: -webkit-box;
-    display: -ms-flexbox;link rel="canonical" href="https://getbootstrap.com/docs/4.1/examples/jumbotron/"
+    display: -ms-flexbox;
+   
     display: flex;
     -webkit-box-pack: center;
         -ms-flex-pack: center;
