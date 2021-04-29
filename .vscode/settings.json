@@ -1,0 +1,33 @@
+{
+    "liveServer.settings.port": 5501,
+
+    "githubPullRequests.remotes": [
+        "origin",
+        "upstream",
+        "master",
+        "main"
+    ],
+
+    "html.suggest.html5": true,
+    "editor.linkedEditing": true,
+    "html.validate.scripts": true,
+    "html.format.wrapLineLength": 120,
+    "html.format.unformatted": "wbr",
+    "html.format.contentUnformatted": "pre,code,textarea",
+    "html.format.extraLiners": "head, body, /html",
+    "html.format.preserveNewLines": null,
+    "html.format.maxPreserveNewLines": null,
+    "html.format.endWithNewline": false,
+    "html.format.indentInnerHtml": false,
+    "html.format.wrapAttributes": "auto",
+    "html.format.wrapAttributesIndentSize": null,
+    "html.format.templating": false,
+    "html.format.unformattedContentDelimiter": "",
+    "html.autoClosingTags": true,
+    "[html]": {
+        "editor.suggest.insertMode": "replace"
+    },
+"git.scanRepositories": [
+    "https.www.github.com/gbowne1/taot.git"
+]
+}
