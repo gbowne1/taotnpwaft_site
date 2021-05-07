@@ -18,7 +18,7 @@
     "html.format.preserveNewLines": null,
     "html.format.maxPreserveNewLines": null,
     "html.format.endWithNewline": false,
-    "html.format.indentInnerHtml": false,
+    "html.format.indentInnerHtml": true,
     "html.format.wrapAttributes": "auto",
     "html.format.wrapAttributesIndentSize": null,
     "html.format.templating": false,
@@ -29,5 +29,6 @@
     },
 "git.scanRepositories": [
     "https.www.github.com/gbowne1/taot.git"
-]
+],
+"html.format.indentHandlebars": true
 }

@@ -11,7 +11,7 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "DemoWebSite - Complete", "D
 		Debug.AspNetCompiler.VirtualPath = "/DemoWebSite - Complete"
 		Release.AspNetCompiler.Debug = "False"
 		Release.AspNetCompiler.FixedNames = "false"
-		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"Bob is cool
 		Release.AspNetCompiler.PhysicalPath = "DemoWebSite - Complete\"
 		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\DemoWebSite - Complete\"
 		Release.AspNetCompiler.Updateable = "true"
@@ -24,10 +24,7 @@ Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 	EndGlobalSection
-	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{A1D995D3-C4DB-4A31-B404-1E8F1160D34B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A1D995D3-C4DB-4A31-B404-1E8F1160D34B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolutionBob is cool
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
