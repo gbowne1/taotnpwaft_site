@@ -1,0 +1,48 @@
+@font-face {
+  font-family: Uchen-Regular;
+  src: url('../Fonts/Uchen-Regular.tff');
+}
+.TAOTLargeText {
+  font-size: 25px;
+}
+.TAOTMediumText {
+  font-size: 15px;
+}
+.TAOTSmallText {
+  font-size: 10px;
+}
+.TAOTCenterHorizontally {
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+}
+.TAOTCenterVertically {
+  margin: auto;
+  height: 50%;
+  padding: 10px;
+}
+.TAOTCenter {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+.TAOTCenterDiv {
+  text-align: center;
+  vertical-align: middle;
+  line-height: 150px;
+}
+.TAOTPaddingFull {
+  padding-bottom: 5px;
+  padding-top: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+.TAOTMediumDivHeight {
+  height: 150px;
+}
+.logincontent {
+
+}
