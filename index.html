@@ -7,11 +7,13 @@
   <link rel="stylesheet" href="Libs/FontAwesome/css/font-awesome.css">
   <link rel="stylesheet" href="Libs/JQWidgets/jqwidgets/styles/jqx.base.css">
   <link rel="stylesheet" href="Libs/JQWidgets/jqwidgets/styles/jqx.bootstrap.css">
+  <link rel="stylesheet" href="Libs/Toastr/build/toastr.css">
   <link rel="stylesheet" href="Styles/TAOT.css">
   <script src="Libs/JQuery/jquery-3.6.0.js"></script>
   <script src="Libs/popper.min.js"></script>
   <script src="Libs/Bootstrap/js/bootstrap.js"></script>
   <script src="Libs/JQWidgets/jqwidgets/jqx-all.js"></script>
+  <script src="Libs/Toastr/build/toastr.min.js"></script>
   <script src="Scripts/TAOTGeneral.js"></script>
   <script src="Scripts/TAOTGrid.js"></script>
 </head>
@@ -23,8 +25,6 @@
         <div class="col-md-2"><img src="Images/taotlogo.png" height="128" width="128"/></div>
         <div class="col-md-4 TAOTMediumDivHeight"><h3 class="TAOTCenterDiv">The Art of Tech: NPWAFT</h3></div>
         <div class="col-md-2 TAOTCenterDiv">
-          eeee
-        </div>
         <div class="col-md-2 TAOTCenterDiv">
           <button type="button" id="cmdRegister" class="btn btn-primary">Register</button>
           <button type="button" id="cmdLogin" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#FormLoginModal">
@@ -74,6 +74,7 @@
 <div id="grid"></div>
 <script type="text/javascript">
   $(document).ready(function () {
+
     InitialiseLoginGrid();
   });
 </script>

@@ -26,7 +26,8 @@ function InitialiseLoginGrid() {
             { text: 'Password', datafield: 'Password', width: 250 },
             { text: 'LastLogin', datafield: 'LastLogin', width: 180 },
           ]
-        });
+      });
+      NShowNotification("success", "Login Data Loaded.");
     }
   });
 }
