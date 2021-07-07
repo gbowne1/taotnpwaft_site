@@ -16,7 +16,6 @@ function Login() {
       } else {
         console.log('fail', data);
       }
-
     }
   });
 }

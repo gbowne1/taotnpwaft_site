@@ -54,4 +54,47 @@ function ValidateLogin($username, $password) : bool {
     return false;
   }
 }
+/*------------------------------------------------------------
+ * Name:          GetLoginTableData
+ * Purpose:       Returns JSON of all Record in the Login Table
+ * Args:          None
+ * Returns:       JSON
+ * Date Created:  06 July 2021
+ * Author:        Ivan Dormain
+ * ------------------------------------------------------------*/
+function GetLoginTableData() {
+  $conn = GetMySqliConnection();
+  if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+  }
+  $conn -> select_db("radiologger");
+  $sql = "SELECT * FROM logins";
+  $result = $conn->query($sql);
+  $info=array();
+  if ($result->num_rows > 0) {
+    // output data of each row
+    while($row = $result->fetch_assoc()) {
+      $loginInfo = array();
+      $loginInfo["LoginId"]=$row["LoginId"];
+      $loginInfo["UserName"]=$row["UserName"];
+      $loginInfo["Password"]=$row["Password"];
+      $loginInfo["LastLogin"]=$row["LastLogin"];
+      array_push($info, $loginInfo);
+    }
+    return json_encode($info);
+  } else {
+    echo "0 results";
+  }
+}
 
+/*------------------------------------------------------------
+ * Name:          General PHP to Check for an AJAX Call from JQuery
+ * Purpose:       General PHP to Check for an AJAX Call from JQuery
+ * Args:          None
+ * Returns:       None
+ * Date Created:  06 July 2021
+ * Author:        Ivan Dormain
+ * ------------------------------------------------------------*/
+if (isset($_POST['GetLoginTableData'])) {
+  echo GetLoginTableData($_POST['GetLoginTableData']);
+}

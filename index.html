@@ -5,11 +5,15 @@
   <title>Title</title>
   <link rel="stylesheet" href="Libs/Bootstrap/css/bootstrap.css">
   <link rel="stylesheet" href="Libs/FontAwesome/css/font-awesome.css">
+  <link rel="stylesheet" href="Libs/JQWidgets/jqwidgets/styles/jqx.base.css">
+  <link rel="stylesheet" href="Libs/JQWidgets/jqwidgets/styles/jqx.bootstrap.css">
   <link rel="stylesheet" href="Styles/TAOT.css">
   <script src="Libs/JQuery/jquery-3.6.0.js"></script>
   <script src="Libs/popper.min.js"></script>
   <script src="Libs/Bootstrap/js/bootstrap.js"></script>
+  <script src="Libs/JQWidgets/jqwidgets/jqx-all.js"></script>
   <script src="Scripts/TAOTGeneral.js"></script>
+  <script src="Scripts/TAOTGrid.js"></script>
 </head>
 <body>
 <!--<div class="container">-->
@@ -37,7 +41,6 @@
         <tr><td class="TAOTPaddingFull">Blog</td></tr>
         <tr><td class="TAOTPaddingFull">Membership</td></tr>
       </table>
-
     </div>
     <div class="col-md-10">Left</div>
   </div>
@@ -68,10 +71,11 @@
     </div>
   </div>
 </div>
-
-<script>
-
+<div id="grid"></div>
+<script type="text/javascript">
+  $(document).ready(function () {
+    InitialiseLoginGrid();
+  });
 </script>
-
 </body>
 </html>
