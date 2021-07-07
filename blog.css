@@ -7,7 +7,7 @@
 body {
   font-family: Arial;
   padding: 20px;
-  background: #f1f1f1;
+  background: #5bbcd8;
 }
 
 /* Header/Blog Title */
@@ -20,7 +20,7 @@ body {
 
 /* Create two unequal columns that floats next to each other */
 /* Left column */
-.leftcolumn {   
+.leftcolumn {
   float: left;
   width: 75%;
 }
@@ -63,7 +63,7 @@ body {
 
 /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
 @media screen and (max-width: 800px) {
-  .leftcolumn, .rightcolumn {   
+  .leftcolumn, .rightcolumn {
     width: 100%;
     padding: 0;
   }
