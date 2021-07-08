@@ -15,7 +15,7 @@
     "html.format.unformatted": "wbr",
     "html.format.contentUnformatted": "pre,code,textarea",
     "html.format.extraLiners": "head, body, /html",
-    "html.format.preserveNewLines": null,
+    "html.format.preserveNewLines": true,
     "html.format.maxPreserveNewLines": null,
     "html.format.endWithNewline": false,
     "html.format.indentInnerHtml": true,
@@ -30,5 +30,21 @@
 "git.scanRepositories": [
     "https.www.github.com/gbowne1/taot.git"
 ],
-"html.format.indentHandlebars": true
+"html.format.indentHandlebars": true,
+"sqltools.connections": [
+    {
+        "mysqlOptions": {
+            "authProtocol": "default"
+        },
+        "previewLimit": 50,
+        "server": "64.20.44.202",
+        "port": 3306,
+        "askForPassword": true,
+        "driver": "MySQL",
+        "username": "radio_admin",
+        "name": "TAOT",
+        "database": "radiologger",
+        "connectionTimeout": 30
+    }
+]
 }
