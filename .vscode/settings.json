@@ -4,8 +4,8 @@
     "githubPullRequests.remotes": [
         "origin",
         "upstream",
-        "master",
-        "main"
+        "main",
+        "master"
     ],
 
     "html.suggest.html5": true,
