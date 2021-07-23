@@ -1,0 +1,98 @@
+trigger:
+- master
+
+stages:
+- stage: 'Build'
+  displayName: 'Build the web application'
+
+  jobs:
+  - job: 'Build'
+    displayName: 'Build job'
+
+    pool:
+      vmImage: 'windows-latest'
+
+    variables:
+      solution: '**/*.sln'
+      buildPlatform: 'Any CPU'
+      buildConfiguration: 'Release'
+
+    steps:
+    - task: NuGetToolInstaller@1
+
+    - task: NuGetCommand@2
+      inputs:
+        restoreSolution: '$(solution)'
+
+    - task: VSBuild@1
+      inputs:
+        solution: '$(solution)'
+        msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:PackageLocation="$(build.artifactStagingDirectory)"'
+        platform: '$(buildPlatform)'
+        configuration: '$(buildConfiguration)'
+
+    - task: VSTest@2
+      inputs:
+        platform: '$(buildPlatform)'
+        configuration: '$(buildConfiguration)'
+
+    - task: PublishBuildArtifacts@1
+      inputs:
+        PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+        ArtifactName: 'drop'
+        publishLocation: 'Container'
+
+- stage: 'Deploy'
+  displayName: 'Deploy the web application'
+  dependsOn: Build
+  jobs:
+  - deployment: 'DeployToDev'
+    displayName: 'Deploy the web application to dev environment'
+    variables:
+      Parameters.IISDeploymentType: 'IISWebsite'
+      Parameters.ActionIISWebsite: 'CreateOrUpdateWebsite'
+      Parameters.WebsiteName: 'Default Web Site'
+      Parameters.WebsitePhysicalPath: '%SystemDrive%\inetpub\wwwroot\AspNetDemo'
+      Parameters.AddBinding: false
+      Parameters.VirtualPathForApplication: '/AspNetDemo'
+      Parameters.AppPoolName: ''
+      Parameters.VirtualApplication: 'AspNetDemo'
+      Parameters.Package: '$(Pipeline.Workspace)\drop\*.zip'
+      Parameters.RemoveAdditionalFilesFlag: true
+      Parameters.TakeAppOfflineFlag: true
+      Parameters.XmlTransformation: true
+      Parameters.XmlVariableSubstitution: true
+    environment:
+      name: Dev
+      resourceType: VirtualMachine
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+          - download: current
+            artifact: drop
+
+          - task: IISWebAppManagementOnMachineGroup@0
+            displayName: 'IIS Web App Manage'
+            inputs:
+              IISDeploymentType: '$(Parameters.IISDeploymentType)'
+              ActionIISWebsite: '$(Parameters.ActionIISWebsite)'
+              WebsiteName: '$(Parameters.WebsiteName)'
+              WebsitePhysicalPath: '$(Parameters.WebsitePhysicalPath)'
+              AddBinding: $(Parameters.AddBinding)
+              ParentWebsiteNameForVD: '$(Parameters.WebsiteName)'
+              VirtualPathForVD: '$(Parameters.VirtualPathForApplication)'
+              ParentWebsiteNameForApplication: '$(Parameters.WebsiteName)'
+              VirtualPathForApplication: '$(Parameters.VirtualPathForApplication)'
+              AppPoolName: '$(Parameters.AppPoolName)'
+
+          - task: IISWebAppDeploymentOnMachineGroup@0
+            displayName: 'IIS Web App Deploy'
+            inputs:
+              WebSiteName: '$(Parameters.WebsiteName)'
+              VirtualApplication: '$(Parameters.VirtualApplication)'
+              Package: '$(Parameters.Package)'
+              RemoveAdditionalFilesFlag: $(Parameters.RemoveAdditionalFilesFlag)
+              TakeAppOfflineFlag: $(Parameters.TakeAppOfflineFlag)
+              XmlTransformation: $(Parameters.XmlTransformation)
+              XmlVariableSubstitution: $(Parameters.XmlVariableSubstitution)
